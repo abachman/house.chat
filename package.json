@@ -1,0 +1,23 @@
+{
+  "name": "housechat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/abachman/house.chat.git"
+  },
+  "keywords": [
+    "house",
+    "chat"
+  ],
+  "author": "Adam Bachman adam.bachman@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abachman/house.chat/issues"
+  },
+  "homepage": "https://github.com/abachman/house.chat#readme"
+}
