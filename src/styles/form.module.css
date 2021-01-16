@@ -1,16 +1,19 @@
-@value textpad: 4px;
-@value textline: 1.2rem;
-@value blue: #ace;
+:root {
+  --textpad: 4px;
+  --textline: 1.2rem;
+}
 
 .form {
   display: grid;
   grid-template-columns: 1fr 80px;
+  margin-top: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form textarea {
   border: 1px solid;
-  line-height: 1.2rem;
-  padding: textpad;
+  line-height: var(--textline);
+  padding: var(--textpad);
   resize: none;
   width: 100%;
 }

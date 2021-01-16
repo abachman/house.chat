@@ -1,8 +1,16 @@
 .messages {
-  border: 1px solid red;
+  margin-top: 1rem;
+  /* border: 1px solid red; */
 }
 
-.messages .message {
-  display: grid;
-  grid-template-columns: 48px 1fr;
+.message {
+  margin-bottom: 1rem;
+}
+
+.message strong {
+  display: block;
+}
+
+.system strong {
+  font-style: italic;
 }

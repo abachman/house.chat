@@ -1,4 +1,7 @@
-@value textpad, textline from "./styles/form.module.css";
+:root {
+  --textpad: 4px;
+  --textline: 1.2rem;
+}
 
 .App {
 }
@@ -21,7 +24,7 @@
   width: 800px;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: calc(textpad * 2 + textline * 2) 1fr;
+  grid-template-rows: calc(var(--textpad) * 2 + var(--textline) * 2) 1fr;
   row-gap: 1rem;
 }
 

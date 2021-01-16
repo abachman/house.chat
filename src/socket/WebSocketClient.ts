@@ -19,6 +19,20 @@ export type WsMessage = {
   [key: string]: any
 }
 
+export declare interface WebSocketClient {
+  on(event: 'open', listener: (clientId: string) => void): this
+  on(event: 'connect', listener: (otherClientId: string) => void): this
+  on(event: 'disconnect', listener: (otherClientId: string) => void): this
+  on(
+    event: 'data',
+    listener: (message: WsMessage, otherClientId: string) => void
+  ): this
+  on(
+    event: 'dataString',
+    listener: (message: string, otherClientId: string) => void
+  ): this
+}
+
 export class WebSocketClient extends EventEmitter3 {
   reconnect_interval: number
   url: string

@@ -3,4 +3,7 @@ export type Message = {
   content: string
   from: string
   mid: string
+
+  // idk, stuff?
+  [key: string]: any
 }

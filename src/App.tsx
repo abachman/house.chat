@@ -10,6 +10,10 @@ function App() {
   const [messages, setMessages] = useState<Message[]>([])
   const [socket, setSocket] = useState<WebSocketClient>()
 
+  const appendMessage = useCallback((msg: Message) => {
+    setMessages((prev) => [msg, ...prev])
+  }, [])
+
   useEffect(() => {
     const socket = new WebSocketClient(
       'wss://chat.reasonable.systems/house.chat'
@@ -17,16 +21,33 @@ function App() {
 
     socket.on('data', (msg: WsMessage, id) => {
       console.log('message from', id)
-      setMessages((prev) => [
-        ...prev,
-        { content: msg.content, from: id, mid: uuid() },
+      appendMessage({ content: msg.content, from: id, mid: uuid() })
+    })
+
+    socket.on('open', (selfId) => {
+      setMessages([
+        {
+          mid: uuid(),
+          from: 'system',
+          content: `joined as ${selfId}`,
+          $SYS: true,
+        },
       ])
+    })
+
+    socket.on('connect', (otherId) => {
+      appendMessage({
+        mid: uuid(),
+        from: 'system',
+        content: `${otherId} has joined`,
+        $SYS: true,
+      })
     })
 
     socket.open()
 
     setSocket(socket)
-  }, [])
+  }, [appendMessage])
 
   const send = useCallback(
     (text: string) => {

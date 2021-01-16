@@ -13,7 +13,7 @@ export const Messages = (props: MessagesProps) => {
         return (
           <div
             key={message.mid}
-            className="message"
+            className={`${style.message} ${message.$SYS ? style.system : ''}`}
             id={`message-${message.mid}`}
           >
             <strong>{message.from}</strong>
